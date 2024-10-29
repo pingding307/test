@@ -1,0 +1,33 @@
+[package]
+name = "bank-of-sol"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "bank_of_sol"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.29.0"
+num_enum = "0.7.0"
+anchor-spl = "0.29.0"
+decimal-wad = "0.1.7"
+raydium-amm-v3 = { git = "https://github.com/raydium-io/raydium-clmm", features = [
+    "no-entrypoint",
+    "cpi",
+] }
+bytemuck = { version = "1.4.0", features = ["min_const_generics", "derive"] }
+ahash = "=0.8.6"
+muldiv = "1.0.1"
+
+[dev-dependencies]
+proptest = "1.0"
+test-case = "3.3.0"
